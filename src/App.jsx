@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const API_BASE = 'https://test-backend.viraj-frisson.workers.dev'; // Change to your deployed backend URL
+const API_BASE = 'https://books-backend-worker.viraj-frisson.workers.dev/'; // Change to your deployed backend URL
 
 export default function App() {
   const [books, setBooks] = useState([]);
