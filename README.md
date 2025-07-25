@@ -1,19 +1,29 @@
-# Sui Wallet App
+# Sui Wallet & Books App
 
-A React application integrated with Privy authentication and Sui blockchain wallet functionality.
+A React application that combines Privy authentication with Sui blockchain wallet functionality and a books library interface.
 
 ## Features
 
+### 🔗 Sui Wallet Features
 - **Privy Authentication**: Secure user authentication with Privy
-- **Sui Wallet Integration**: Create and manage Sui wallets
-- **Balance Display**: View Sui token balances from testnet
-- **Modern UI**: Styled with Tailwind CSS (via CDN)
+- **Real Sui Address Generation**: Creates valid Sui blockchain addresses
+- **Wallet Persistence**: Wallet saved across page refreshes
+- **Balance Display**: View SUI token balances from testnet
+- **Balance Refresh**: Manual refresh without page reload
+- **Wallet Management**: Delete and regenerate wallets
+
+### 📚 Books Library Features
+- **Books Display**: View books from backend API
+- **Responsive Table**: Clean, organized book information
+- **Book Details**: Title, author, genre, description, and cover images
+- **Real-time Refresh**: Update book list manually
 
 ## Components
 
-- `App.jsx`: Main application component with centered layout
-- `MySuiWallet.jsx`: Main wallet component handling authentication and wallet creation
-- `WalletBalance.jsx`: Component for displaying wallet balance from Sui testnet
+- `App.jsx`: Main application with tabbed interface
+- `MySuiWallet.jsx`: Sui wallet component with authentication and wallet management
+- `WalletBalance.jsx`: Component for displaying and refreshing wallet balance
+- `BooksTable.jsx`: Books library table component
 
 ## Technologies Used
 
