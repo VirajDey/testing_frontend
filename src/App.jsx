@@ -1,70 +1,47 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import MySuiWallet from './MySuiWallet';
+import BooksTable from './BooksTable';
 
-const API_BASE = 'https://books-backend-worker.viraj-frisson.workers.dev'; // Change to your deployed backend URL
-
-export default function App() {
-  const [books, setBooks] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-
-  const fetchBooks = async () => {
-    setLoading(true);
-    setError('');
-    try {
-      const res = await fetch(`${API_BASE}/api/books`);
-      if (!res.ok) throw new Error('Failed to fetch books');
-      const data = await res.json();
-      setBooks(data.books || []);
-    } catch (err) {
-      setError('Failed to fetch books');
-    }
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    fetchBooks();
-  }, []);
+const App = () => {
+  const [activeTab, setActiveTab] = useState('wallet');
 
   return (
-    <div style={{ maxWidth: 800, margin: '2rem auto', fontFamily: 'sans-serif' }}>
-      <h1>Book Library</h1>
-      {error && <div style={{ color: 'red', marginBottom: 16 }}>{error}</div>}
-      {loading ? (
-        <div>Loading...</div>
-      ) : (
-        <table border="1" cellPadding="8" style={{ width: '100%', borderCollapse: 'collapse' }}>
-          <thead>
-            <tr>
-              <th>Cover</th>
-              <th>Title</th>
-              <th>Author</th>
-              <th>Genre</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            {books.length === 0 ? (
-              <tr><td colSpan="5">No books found.</td></tr>
-            ) : (
-              books.map((book) => (
-                <tr key={book.id}>
-                  <td>
-                    {book.image_url ? (
-                      <img src={book.image_url} alt={book.title} style={{ width: 60, height: 90, objectFit: 'cover' }} />
-                    ) : (
-                      <span>No image</span>
-                    )}
-                  </td>
-                  <td>{book.title}</td>
-                  <td>{book.author}</td>
-                  <td>{book.genre}</td>
-                  <td>{book.description}</td>
-                </tr>
-              ))
-            )}
-          </tbody>
-        </table>
-      )}
+    <div className="min-h-screen bg-gray-100 py-8">
+      <div className="max-w-6xl mx-auto px-4">
+        {/* Navigation Tabs */}
+        <div className="flex justify-center mb-8">
+          <div className="bg-white rounded-lg shadow p-1">
+            <button
+              onClick={() => setActiveTab('wallet')}
+              className={`px-6 py-2 rounded-md transition-colors ${
+                activeTab === 'wallet'
+                  ? 'bg-blue-500 text-white'
+                  : 'text-gray-600 hover:text-gray-800'
+              }`}
+            >
+              🔗 Sui Wallet
+            </button>
+            <button
+              onClick={() => setActiveTab('books')}
+              className={`px-6 py-2 rounded-md transition-colors ${
+                activeTab === 'books'
+                  ? 'bg-blue-500 text-white'
+                  : 'text-gray-600 hover:text-gray-800'
+              }`}
+            >
+              📚 Books Library
+            </button>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="flex justify-center">
+          {activeTab === 'wallet' && <MySuiWallet />}
+          {activeTab === 'books' && <BooksTable />}
+        </div>
+      </div>
     </div>
   );
-} 
+};
+
+export default App; 

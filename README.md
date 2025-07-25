@@ -1,12 +1,80 @@
-# Frontend for Users CRUD (Cloudflare Workers + Supabase)
+# Sui Wallet & Books App
 
-This is a minimal React frontend for the Users CRUD API deployed on Cloudflare Workers.
+A React application that combines Privy authentication with Sui blockchain wallet functionality and a books library interface.
 
 ## Features
-- List, add, edit, and delete users
-- Connects to the backend deployed on Cloudflare Workers
+
+### 🔗 Sui Wallet Features
+- **Privy Authentication**: Secure user authentication with Privy
+- **Real Sui Address Generation**: Creates valid Sui blockchain addresses
+- **Wallet Persistence**: Wallet saved across page refreshes
+- **Balance Display**: View SUI token balances from testnet
+- **Balance Refresh**: Manual refresh without page reload
+- **Wallet Management**: Delete and regenerate wallets
+
+### 📚 Books Library Features
+- **Books Display**: View books from backend API
+- **Responsive Table**: Clean, organized book information
+- **Book Details**: Title, author, genre, description, and cover images
+- **Real-time Refresh**: Update book list manually
+
+## Components
+
+- `App.jsx`: Main application with tabbed interface
+- `MySuiWallet.jsx`: Sui wallet component with authentication and wallet management
+- `WalletBalance.jsx`: Component for displaying and refreshing wallet balance
+- `BooksTable.jsx`: Books library table component
+
+## Technologies Used
+
+- React 18
+- Vite (build tool)
+- Privy (authentication)
+- @mysten/sui.js v0.50.1 (Sui blockchain integration - compatible version)
+- Tailwind CSS (via CDN)
 
 ## Setup
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+2. Start development server:
+   ```bash
+   npm run dev
+   ```
+
+3. Open http://localhost:5173 in your browser
+
+## Configuration
+
+The app is configured to use:
+- Privy App ID: `cmdgqec2a008ul20mkxhsg720`
+- Sui Testnet for blockchain interactions
+- Manual wallet creation (not automatic on login)
+- Tailwind CSS via CDN for styling
+
+## Usage
+
+1. Click "Login" to authenticate with Privy
+2. Click "Create Sui Wallet" to generate a new Sui wallet
+3. View wallet information and balance once created
+4. Use "Logout" to sign out
+
+## Notes
+
+- Uses @mysten/sui.js v0.50.1 for Node.js v20.12.2 compatibility
+- Tailwind CSS loaded via CDN to avoid PostCSS configuration issues
+- The wallet creation functionality may require additional Privy configuration for extended chains support
+
+## Dependencies
+
+Key packages:
+- `@privy-io/react-auth`: Authentication provider
+- `@mysten/sui.js@0.50.1`: Sui blockchain client (compatible version)
+- `@vitejs/plugin-react`: Vite React support
+- `react` & `react-dom`: React framework
 
 1. Install dependencies:
    ```bash
