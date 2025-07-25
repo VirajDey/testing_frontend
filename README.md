@@ -1,12 +1,70 @@
-# Frontend for Users CRUD (Cloudflare Workers + Supabase)
+# Sui Wallet App
 
-This is a minimal React frontend for the Users CRUD API deployed on Cloudflare Workers.
+A React application integrated with Privy authentication and Sui blockchain wallet functionality.
 
 ## Features
-- List, add, edit, and delete users
-- Connects to the backend deployed on Cloudflare Workers
+
+- **Privy Authentication**: Secure user authentication with Privy
+- **Sui Wallet Integration**: Create and manage Sui wallets
+- **Balance Display**: View Sui token balances from testnet
+- **Modern UI**: Styled with Tailwind CSS (via CDN)
+
+## Components
+
+- `App.jsx`: Main application component with centered layout
+- `MySuiWallet.jsx`: Main wallet component handling authentication and wallet creation
+- `WalletBalance.jsx`: Component for displaying wallet balance from Sui testnet
+
+## Technologies Used
+
+- React 18
+- Vite (build tool)
+- Privy (authentication)
+- @mysten/sui.js v0.50.1 (Sui blockchain integration - compatible version)
+- Tailwind CSS (via CDN)
 
 ## Setup
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+2. Start development server:
+   ```bash
+   npm run dev
+   ```
+
+3. Open http://localhost:5173 in your browser
+
+## Configuration
+
+The app is configured to use:
+- Privy App ID: `cmdgqec2a008ul20mkxhsg720`
+- Sui Testnet for blockchain interactions
+- Manual wallet creation (not automatic on login)
+- Tailwind CSS via CDN for styling
+
+## Usage
+
+1. Click "Login" to authenticate with Privy
+2. Click "Create Sui Wallet" to generate a new Sui wallet
+3. View wallet information and balance once created
+4. Use "Logout" to sign out
+
+## Notes
+
+- Uses @mysten/sui.js v0.50.1 for Node.js v20.12.2 compatibility
+- Tailwind CSS loaded via CDN to avoid PostCSS configuration issues
+- The wallet creation functionality may require additional Privy configuration for extended chains support
+
+## Dependencies
+
+Key packages:
+- `@privy-io/react-auth`: Authentication provider
+- `@mysten/sui.js@0.50.1`: Sui blockchain client (compatible version)
+- `@vitejs/plugin-react`: Vite React support
+- `react` & `react-dom`: React framework
 
 1. Install dependencies:
    ```bash
