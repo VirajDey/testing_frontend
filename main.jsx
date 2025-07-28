@@ -6,7 +6,7 @@ import { PrivyProvider } from "@privy-io/react-auth";
 const root = createRoot(document.getElementById("root"));
 
 root.render(
-  <PrivyProvider appId="cmdippnm000nxlb0jl7m0012y">
+  <PrivyProvider appId="cmd5q4q1700avl10mc19isg0c">
     <App />
   </PrivyProvider>
 ); 
